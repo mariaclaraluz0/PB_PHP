@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista Usuarios</title>
 </head>
 <body>
     <a href='/PB_PHP/MVC_exemplo/usuario/telaCadastro'>Ir para tela Cadastro </a>
@@ -14,11 +14,15 @@
             <th>email</th>
             <th>ações</th>
 </tr>
-<?php foreach($usuarios as $u): ?>
-    <th>
+<?php foreach($usuarios as $id =>$u): ?>
+    <tr>
         <td><?=$u['nome']?></td>
         <td><?=$u['email']?></td>
-        <td>proxima aula </td>
+        <td>
+ <a href="/PB_PHP/MVC_exemplo/usuario/telaEditar?id=<?=$id ?>">Editar</a>
+
+<a href="/PB_PHP/MVC_exemplo/usuario/excluir?id=<?= $id?>">   Excluir</a>
+     </td>
 </tr>
 <?php endforeach ?>
 </table>
