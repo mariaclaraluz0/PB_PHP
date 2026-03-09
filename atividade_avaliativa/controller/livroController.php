@@ -9,12 +9,12 @@ class livroController{
     }
 
     public function cadastrar(){
-      $id= $_POST ['id'];
+      $editora= $_POST ['editora'];
       $titulo= $_POST['titulo'];
       $autor=$_POST['autor'];
       $ano_publicacao= $_POST['ano_publicacao'];
 
-        $livro = new livro($id, $titulo, $autor, $ano_publicacao);
+        $livro = new livro($editora, $titulo, $autor, $ano_publicacao);
         $livro->salvar();
         header('Location:/PB_PHP/atividade_avaliativa/livro/telaCadastro');
         exit;
@@ -34,7 +34,7 @@ class livroController{
     }
 
     public function atualizar(){
-    $livro = new livro($_POST['id'],$_POST['titulo'],$_POST['autor'],$_POST['ano_publicacao']);
+    $livro = new livro($_POST['editora'],$_POST['titulo'],$_POST['autor'],$_POST['ano_publicacao']);
         $livro->atualizar($_GET['id']);
         header('Location:/PB_PHP/atividade_avaliativa/livro/telaEditar?id='.($_GET['id']));
         exit;
